@@ -1,0 +1,34 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 7100
+  adminConnectors:
+    - type: http
+      port: 17100
+
+rutaBambooBase: http://localhost:8085/rest/api/
+
+logging:
+  level: INFO
+  loggers:
+    org.mongodb.service: DEBUG
+    io.dropwizard: WARN
+    org.eclipse: INFO
+    org.hibernate: WARN
+    org.apache.camel: WARN
+    com.mchange: WARN
+    com.netflix: WARN
+    org.jboss.weld.Version: INFO
+    org.jboss.weld: WARN
+    io.dropwizard.jersey.DropwizardResourceConfig: INFO
+    io.dropwizard.server.ServerFactory: INFO
+    org.glassfish.jersey.server.ServerRuntime: FATAL
+    org.jboss.weld.environment.servlet.logging: DEBUG
+  appenders:
+    - type: file
+      currentLogFilename: logs\service.log
+      archivedLogFilenamePattern: logs\service-%d.log.gz
+      archivedFileCount: 5
+      timeZone: EST
+    - type: console
+      timeZone: EST
